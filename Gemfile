@@ -51,6 +51,9 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
@@ -62,5 +65,34 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  # gem "spring"
+  gem 'rubocop', '~> 1.29', require: false
+
+  # IDE tools for code completion, inline documentation, and static analysis
+  gem 'solargraph', '~> 0.45', require: false
+
+  # Helps us to format ERB files, so our eyes don't bleed :)
+  gem 'htmlbeautifier', '~> 1.4', require: false
 end
 
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'capybara'
+
+  # Cuprite is a modern Capybara driver which uses Chrome CDP API
+  gem 'cuprite', '~> 0.13'
+  gem 'test-prof', '~> 1.0', '>= 1.0.7'
+
+  # Webmock is a library for stubbing http request (with Faraday in the case)
+  gem 'webmock', '~> 3.14'
+
+  gem 'shoulda-matchers', '~> 5.1'
+
+  # Generates test vs. code coverage reports
+  gem 'simplecov', '~> 0.21.2', require: false
+end
+
+# Routines for contenairized Rails apps
+gem 'on_container', '~> 0.0.17'
