@@ -12,7 +12,7 @@ services:
         target: /var/lib/postgresql/data
     ports:
       - target: 5432
-        published: 5432
+        published: 5433
     environment:
       POSTGRES_USER: ${USER:-you}
       POSTGRES_HOST_AUTH_METHOD: trust
@@ -72,8 +72,6 @@ services:
       - NET_ADMIN
     security_opt:
       - seccomp:unconfined
-
-    entrypoint: /workspaces/rails-docker-vscode/bin/dev-entrypoint
 
     # Link to our postgres and redis services, so they can be visible from our
     # app service containers:
